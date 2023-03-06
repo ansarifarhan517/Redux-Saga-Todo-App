@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
-import { todoDataReducer } from './reducers'
+import { todoDataReducer, authenticateReducer } from './reducers'
 
-export default combineReducers({ todoDataReducer })
+export default combineReducers({ todoDataReducer, authenticateReducer })

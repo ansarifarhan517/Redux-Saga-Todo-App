@@ -1,40 +1,32 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { getTodoListDataRequest } from '../../Store/actions'
+// import { getTodoListDataRequest } from '../../Store/actions'
 import {useDispatch} from 'react-redux'
+import { deleteFromTodoList } from '../../Store/actions'
 const ToDoList = () => {
     const dispatch = useDispatch()
     const data = useSelector(state => state.todoDataReducer)
-    const DUMMY_DATA = [
-        {
-            id: 1,
-            name: 'Farhan',
-            TodoData: 'Learn React',
-            date: Date.now()
-        },
-        {
-            id: 2,
-            name: 'Vikram',
-            TodoData: 'Learn GIS',
-            date: Date.now()
-        },
-        {
-            id: 3,
-            name: 'Navdeep',
-            TodoData: 'Learn Python',
-            date: Date.now()
-        },
-    ]
-    
+
+    const deleteHandler = (e) => {
+       dispatch(deleteFromTodoList(e.target.dataset.id))
+    }
+
     useEffect(() => {
-        dispatch(getTodoListDataRequest())
-    }, [])
-    
+        console.log(data)
+    }, [data])
+
+
     return (
         <div className='border p-4 flex justify-center w-1/2 shadow-lg'>
-            <ul>
-                {data.map((i, index) => {
-                    return <li key={index}>{i}</li>
+            <ul className='w-full flex flex-col justify-between gap-2'>
+                {data.length > 0 && data[0].Todos.map((i, index) => {
+                    return (
+                        <div className='flex justify-between '>
+                            <li key={index} className=''>{i} </li>
+                            <span className='bg-red-600 px-2 hover:scale-110 shadow-lg text-white' data-id={index} onClick={deleteHandler}>x</span>
+                        </div>
+
+                    )
                 })}
             </ul>
         </div>

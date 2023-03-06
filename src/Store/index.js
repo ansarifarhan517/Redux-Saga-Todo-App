@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './rootReducer'
 import createSagaMiddleware from 'redux-saga'
-import { watchAddToDoListData, watchGetToDoListData } from './sagas'
+import { rootSaga, watchAddToDoListData, watchGetToDoListData } from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -11,6 +11,6 @@ const store = createStore(
 
 )
 
-sagaMiddleware.run(watchGetToDoListData,watchAddToDoListData)
+sagaMiddleware.run(rootSaga)
 
 export default store

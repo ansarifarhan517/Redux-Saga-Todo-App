@@ -1,5 +1,35 @@
 [
-    "Learning React",
-    "Learning Angular",
-    "Learning Java"
+    {
+        "id": 1,
+        "name": "Lyla Merchant",
+        "username": "Lyla",
+        "password": 123456,
+        "Todos": [
+            "Learning Devops",
+            "Learning Aws",
+            "Learning Azure"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Jhon Doe",
+        "username": "Jhon",
+        "password": 123456,
+        "Todos": [
+            "Learning React",
+            "Learning Angular",
+            "Learning Nodejs"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Smith Watson",
+        "username": "Smith",
+        "password": 123456,
+        "Todos": [
+            "Learning #C",
+            "Learning Angular",
+            "Learning .Net"
+        ]
+    }
 ]
