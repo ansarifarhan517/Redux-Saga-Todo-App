@@ -21,7 +21,7 @@ const ToDoList = () => {
             <ul className='w-full flex flex-col justify-between gap-2'>
                 {data.length > 0 && data[0].Todos.map((i, index) => {
                     return (
-                        <div className='flex justify-between '>
+                        <div className='flex justify-between ' key={index}>
                             <li key={index} className=''>{i} </li>
                             <span className='bg-red-600 px-2 hover:scale-110 shadow-lg text-white' data-id={index} onClick={deleteHandler}>x</span>
                         </div>

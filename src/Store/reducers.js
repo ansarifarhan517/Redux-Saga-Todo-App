@@ -9,10 +9,9 @@ export const todoDataReducer = (state = [], action) => {
             temp[0].Todos.push(action.data)
             return temp
         case DELETE_FROM_TODOLIST:
-            console.log(state[0].Todos.filter((i,index)=> index != action.data))
-            return state[0].Todos.filter((i,index)=> index != action.data)
+            state[0].Todos = state[0].Todos.filter((i, index) => index != action.data)
+            return [...state]
         case GET_TODOLIST_DATA:
-            console.log('actual data', action)
             return action.payload
         default:
             return state

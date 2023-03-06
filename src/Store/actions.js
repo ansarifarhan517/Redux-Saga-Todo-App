@@ -32,7 +32,7 @@ export const addTodoDataRequest = (data) => {
 export const deleteFromTodoList = (data) => {
     return {
         type: DELETE_FROM_TODOLIST,
-        data: data
+        data: +data
     }
 }
 
