@@ -3,6 +3,7 @@ import MainPage from './Pages/MainPage'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './Pages/Login';
 import Root from './Pages/Root';
+import Header from './Components/Header/Header';
 
 
 

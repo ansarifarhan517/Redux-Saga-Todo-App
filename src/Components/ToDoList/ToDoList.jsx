@@ -17,7 +17,7 @@ const ToDoList = () => {
 
 
     return (
-        <div className='border p-4 flex justify-center w-1/2 shadow-lg'>
+        <div className='border p-4 flex justify-center w-1/2 shadow-lg overflow-hidden'>
             <ul className='w-full flex flex-col justify-between gap-2'>
                 {data.length > 0 && data[0].Todos.map((i, index) => {
                     return (

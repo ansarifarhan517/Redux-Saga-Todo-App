@@ -19,14 +19,18 @@ export const todoDataReducer = (state = [], action) => {
 }
 
 
-export const authenticateReducer = (state = false, action) => {
+export const authenticateReducer = (state = { isAuthentic: false, user: [] }, action) => {
     switch (action.type) {
         case IS_AUTHENTIC:
-            console.log('isAuthentic', action.payload.length > 0 ? true : false)
-            return action.payload.length > 0 ? true : false
+            console.log(state,action)
+            const temp = {
+                isAuthentic: action.payload.length > 0 ? true : false,
+                user: action.payload
+            }
+            console.log(temp)
+            return temp
         case LOGOUT:
-            console.log('first')
-            return state = false
+            return { user:[], isAuthentic: false }
         default:
             return state
     }

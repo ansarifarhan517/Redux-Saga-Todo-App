@@ -9,7 +9,6 @@ const LoginForm = () => {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(isAuthenticateRequest({ username, password }))
-
     }
 
     const usernameHandler = (e) => setUsername(e.target.value)

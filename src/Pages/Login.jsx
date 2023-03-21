@@ -5,11 +5,11 @@ import { useSelector } from 'react-redux'
 
 const Login = () => {
     const navigate = useNavigate();
-    const isAuthenticate = useSelector(state => state.authenticateReducer)
-    console.log(isAuthenticate)
+    const authenticationState = useSelector(state => state.authenticateReducer)
     useEffect(() => {
-        !isAuthenticate ? navigate('/') : navigate('/home')
-    }, [isAuthenticate])
+        authenticationState.isAuthentic ?
+        navigate('/home')  : navigate('/') 
+    }, [authenticationState])
     
     return (
         <LoginForm></LoginForm>

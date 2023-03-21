@@ -8,7 +8,7 @@ const MainPage = () => {
     const navigate = useNavigate();
 
     const [todoData, setTodoData] = useState('')
-    const isAuthenticate = useSelector(state => state.authenticateReducer)
+    const authenticationState = useSelector(state => state.authenticateReducer)
 
     const inputHandler = (e) => setTodoData(e.target.value)
 
@@ -18,8 +18,8 @@ const MainPage = () => {
         if (todoData.length > 0) dispatch(addTodoDataRequest(todoData))
         else alert('Please Enter Data')
     }
-
-    useEffect(() => !isAuthenticate ? navigate('/') : navigate('/home'), [isAuthenticate])
+    console.log(authenticationState)
+    useEffect(() => authenticationState.isAuthentic ?  navigate('/home') : navigate('/') , [authenticationState])
 
 
     return (

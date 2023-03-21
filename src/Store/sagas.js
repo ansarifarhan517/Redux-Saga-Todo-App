@@ -11,23 +11,24 @@ export function* getToDolistData() {
 export function* isAuthencate(action) {
     console.log('isAuthencateWorker')
     const result = yield fetch("./data.json")
-    const data = yield  result.json()
+    const data = yield result.json()
+    console.log(data)
     const user = data.filter(i => i.username == action.data.username && i.password == action.data.password)
     yield put({ type: IS_AUTHENTIC, payload: user })
-    yield put({ type: GET_TODOLIST_DATA, payload: user })
+    yield put({ type: GET_TODOLIST_DATA, payload: data })
 
 }
 
 
 // Our watcher Saga: 
 export function* getToDolistDataWatcher() {
-    yield takeLatest(GET_TODOLIST_DATA_REQUEST, getToDolistData)
+    yield takeEvery(GET_TODOLIST_DATA_REQUEST, getToDolistData)
 
 }
 export function* isAuthencateWatcher() {
 
     console.log('isAuthencateWatcher')
-    yield takeLatest(IS_AUTHENTIC_REQUEST, isAuthencate)
+    yield takeEvery(IS_AUTHENTIC_REQUEST, isAuthencate)
 
 }
 
